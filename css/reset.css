@@ -1,0 +1,63 @@
+@import url(./main.css);
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "League Spartan", sans-serif;
+}
+
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+html {
+  font-size: 62.5%; 
+  scroll-behavior: smooth;
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  font: 1.6rem "Roboto Slab", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  letter-spacing: 0.1rem;
+  min-height: 100svh;
+}
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  font-weight: normal;
+  color: #222;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: xx-large;
+  margin: 0;
+  font-weight: normal;
+}
+
+p,
+figure,
+ol,
+ul,
+details summary {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}

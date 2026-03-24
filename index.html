@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEAM</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,700;0,800;0,900;1,700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <span class="nav-logo">FLEAM</span>
+            <div class="nav-right">
+                <div class="nav-stats">
+                    <div class="nav-stat">
+                        <span id="counterTotal">0</span>
+                        <span class="nav-stat-label">ARTICLES</span>
+                    </div>
+                    <div class="nav-divider"></div>
+                    <div class="nav-stat">
+                        <span id="totalPrix">0 €</span>
+                        <span class="nav-stat-label">BUDGET</span>
+                    </div>
+                </div>
+                <button class="theme-toggle" id="themeToggle" title="Changer de thème">
+                    <span class="theme-icon" id="themeIcon">☀️</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero-banner">
+        <div class="hero-inner">
+            <p class="hero-eyebrow">MA COLLECTION</p>
+            <h2 class="hero-title">SAVE.<br>PLAN.<br><em>WEAR.</em></h2>
+        </div>
+        <div class="hero-stripe"></div>
+    </div>
+
+    <div class="app-wrapper">
+        <main class="app-main">
+
+            <!-- FORMULAIRE -->
+            <section class="form-section">
+                <div class="form-card">
+                    <div class="form-card-header">
+                        <span class="form-card-tag">NEW DROP</span>
+                        <h2 class="form-heading">AJOUTER UN ARTICLE</h2>
+                    </div>
+                    <form id="itemForm" novalidate>
+
+                        <!-- URL principale -->
+                        <div class="field">
+                            <label for="site">LIEN DU PRODUIT <span class="required">*</span></label>
+                            <div class="url-input-row">
+                                <input type="url" id="site" placeholder="https://www.nike.com/..." autocomplete="off">
+                                <button type="button" id="fetchBtn" class="btn-fetch" title="Récupérer les infos">
+                                    <span id="fetchBtnLabel">⚡ AUTO</span>
+                                </button>
+                            </div>
+                            <p class="field-hint">Colle un lien Nike, Footlocker, Zalando… Les infos seront récupérées automatiquement.</p>
+                        </div>
+
+                        <!-- Aperçu infos récupérées -->
+                        <div id="previewBox" class="preview-box hidden">
+                            <div class="preview-image-wrap">
+                                <img id="previewImg" src="" alt="">
+                                <span id="previewImgPlaceholder" class="preview-img-placeholder hidden">👕</span>
+                            </div>
+                            <div class="preview-info">
+                                <div class="preview-nom" id="previewNom">—</div>
+                                <div class="preview-prix" id="previewPrix">—</div>
+                                <div class="preview-desc" id="previewDesc"></div>
+                            </div>
+                        </div>
+
+                        <!-- Message d'état fetch -->
+                        <div id="fetchStatus" class="fetch-status hidden"></div>
+
+                        <!-- Champs éditables (pré-remplis ou manuels) -->
+                        <div id="manualFields" class="hidden">
+                            <div class="manual-header">
+                                <span class="manual-tag">VÉRIFIER / MODIFIER</span>
+                            </div>
+                            <div class="field">
+                                <label for="nom">NOM</label>
+                                <input type="text" id="nom" placeholder="Nom du vêtement">
+                            </div>
+                            <div class="form-row">
+                                <div class="field">
+                                    <label for="prix">PRIX (€)</label>
+                                    <input type="number" id="prix" placeholder="0.00" min="0" step="0.01">
+                                </div>
+                                <div class="field">
+                                    <label for="date">DATE PRÉVUE</label>
+                                    <input type="date" id="date">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="description">NOTES</label>
+                                <textarea id="description" placeholder="Taille, coloris…" rows="2"></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="submitBtn" class="btn-add hidden">
+                            AJOUTER À MA LISTE <span class="btn-arrow">→</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- LISTE -->
+            <section class="list-section">
+                <div class="list-header">
+                    <div class="list-title-row">
+                        <h2 class="list-heading">MA LISTE</h2>
+                        <span class="list-count-badge" id="listCount">0</span>
+                    </div>
+                    <div class="filter-tabs">
+                        <button class="filter-btn active" data-filter="all">TOUS</button>
+                        <button class="filter-btn" data-filter="pending">À ACHETER</button>
+                        <button class="filter-btn" data-filter="bought">ACHETÉS</button>
+                    </div>
+                </div>
+                <div id="itemsContainer" class="items-container"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
