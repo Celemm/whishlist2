@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->n
+    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="nav-inner">
             <span class="nav-logo">FLEAM</span>
@@ -55,60 +55,50 @@
                     </div>
                     <form id="itemForm" novalidate>
 
-                        <!-- URL principale -->
                         <div class="field">
-                            <label for="site">LIEN DU PRODUIT <span class="required">*</span></label>
-                            <div class="url-input-row">
-                                <input type="url" id="site" placeholder="https://www.nike.com/..." autocomplete="off">
-                                <button type="button" id="fetchBtn" class="btn-fetch" title="Récupérer les infos">
-                                    <span id="fetchBtnLabel">⚡ AUTO</span>
-                                </button>
-                            </div>
-                            <p class="field-hint">Colle un lien Nike, Footlocker, Zalando… Les infos seront récupérées automatiquement.</p>
-                        </div>
-
-                        <!-- Aperçu infos récupérées -->
-                        <div id="previewBox" class="preview-box hidden">
-                            <div class="preview-image-wrap">
-                                <img id="previewImg" src="" alt="">
-                                <span id="previewImgPlaceholder" class="preview-img-placeholder hidden">👕</span>
-                            </div>
-                            <div class="preview-info">
-                                <div class="preview-nom" id="previewNom">—</div>
-                                <div class="preview-prix" id="previewPrix">—</div>
-                                <div class="preview-desc" id="previewDesc"></div>
-                            </div>
-                        </div>
-
-                        <!-- Message d'état fetch -->
-                        <div id="fetchStatus" class="fetch-status hidden"></div>
-
-                        <!-- Champs éditables (pré-remplis ou manuels) -->
-                        <div id="manualFields" class="hidden">
-                            <div class="manual-header">
-                                <span class="manual-tag">VÉRIFIER / MODIFIER</span>
-                            </div>
-                            <div class="field">
-                                <label for="nom">NOM</label>
-                                <input type="text" id="nom" placeholder="Nom du vêtement">
-                            </div>
-                            <div class="form-row">
-                                <div class="field">
-                                    <label for="prix">PRIX (€)</label>
-                                    <input type="number" id="prix" placeholder="0.00" min="0" step="0.01">
+                            <label>PHOTO</label>
+                            <div class="image-upload-zone" id="uploadZone">
+                                <input type="file" id="imageInput" accept="image/*" hidden>
+                                <div class="upload-placeholder" id="uploadPlaceholder">
+                                    <span class="upload-icon">+</span>
+                                    <span class="upload-text">AJOUTER UNE PHOTO</span>
+                                    <span class="upload-hint">JPG · PNG · WEBP</span>
                                 </div>
-                                <div class="field">
-                                    <label for="date">DATE PRÉVUE</label>
-                                    <input type="date" id="date">
+                                <img id="imagePreview" class="image-preview hidden" alt="Aperçu">
+                                <button type="button" class="btn-remove-img hidden" id="removeImg">✕</button>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="nom">NOM DU VÊTEMENT <span class="required">*</span></label>
+                            <input type="text" id="nom" placeholder="Ex : Air Force 1 Shadow">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field">
+                                <label for="prix">PRIX <span class="required">*</span></label>
+                                <div class="input-prefix-wrap">
+                                    <span class="input-prefix">€</span>
+                                    <input type="number" id="prix" placeholder="120" min="0" step="0.01">
                                 </div>
                             </div>
                             <div class="field">
-                                <label for="description">NOTES</label>
-                                <textarea id="description" placeholder="Taille, coloris…" rows="2"></textarea>
+                                <label for="date">DATE PRÉVUE</label>
+                                <input type="date" id="date">
                             </div>
                         </div>
 
-                        <button type="submit" id="submitBtn" class="btn-add hidden">
+                        <div class="field">
+                            <label for="site">LIEN DU SITE</label>
+                            <input type="url" id="site" placeholder="https://www.nike.com/...">
+                        </div>
+
+                        <div class="field">
+                            <label for="description">NOTES</label>
+                            <textarea id="description" placeholder="Taille, coloris, pourquoi tu le veux…" rows="3"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-add">
                             AJOUTER À MA LISTE <span class="btn-arrow">→</span>
                         </button>
                     </form>
@@ -134,6 +124,6 @@
         </main>
     </div>
 
-    <script src="/js/script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
