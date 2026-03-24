@@ -1,0 +1,3 @@
+[submodule "fleam_whishlist"]
+	path = fleam_whishlist
+	url = https://github.com/Celemm/whishlist2.git
